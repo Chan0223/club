@@ -1,83 +1,62 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head></head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>동아리통합시스템</title>
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.css"
-        integrity="sha512-aqkl4Ubn3EjbHqnpdpx8dIcIEoFyLCjLd/T2e/Bh7PW1pP/7aFoPbfl/a0CfeI4EBUHtDJ+Ucjz0a4ExblWd5g=="
-        crossorigin="anonymous"
-    />
-    <!-- FullCalendar 최신 버전 CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.0/dist/fullcalendar.min.css" />
-    <!-- Moment.js 최신 버전 CDN -->
-
-</head>
-<body>
-    <header>
-        <div class="logo">로고</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">동아리통합시스템</a></li>
-                <li><a href="members.html">부원관리</a></li>
-                <li><a href="money.html">회비관리</a></li>
-                <li><a href="calendar.html">일정관리</a></li>
-                <li><a href="#myModal" id="loginBtn">로그인</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div id="calendar"></div>  
-    <script
-        src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha512-GLb8UZRLaJRkXZL7aH/djDSWfOV/pD5doPFL1XkME9dr9GL5Mq5i8ELvG6q4Mz2efA+C2d9QxkcAuFZw8n8HlJw=="
-        crossorigin="anonymous"
-    ></script>
-    <script
-        src = "https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"
-        integrity="sha512-FAq2p16IVHu2pOYP0Uq7Viz9bxDgSoGleEHAaqqssCt2flvQtd4KBeWjK4+9RIJ4oz5r6nEuXIt4W0Qz1vgn4Q=="
-        crossorigin="anonymous"
-    ></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-        integrity="sha512-BVtOL3q8OVd3U5ofz4bP8LW2NcS8jq4NJEp+4VQ4u7We+oqE0RD4gHXH9ERv/EtA/7+pBZw6oWVYHs+1M6onEg=="
-        crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.0/dist/fullcalendar.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // FullCalendar 설정
-            $('#calendar').fullCalendar({
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,agendaWeek,agendaDay'
-                },
-                defaultView: 'month',
-                height: 500, // 달력 높이
-                editable: true,
-                events: [
-                    // 여기에 이벤트 데이터 추가 가능
-                    {
-                        title: '회의',
-                        start: '2023-11-20T10:00:00',
-                        end: '2023-11-20T12:00:00',
-                        backgroundColor: '#337ab7',
-                        borderColor: '#2e6da4'
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js" integrity="sha256-alsi6DkexWIdeVDEct5s7cnqsWgOqsh2ihuIZbU6H3I=" crossorigin="anonymous"></script>
+        <title>동아리통합시스템</title>
+    </head>
+    <body>
+        <header>
+            <div class="logo">로고</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">동아리통합시스템</a></li>
+                    <li><a href="members.html">부원관리</a></li>
+                    <li><a href="money.html">회비관리</a></li>
+                    <li><a href="calendar.html">일정관리</a></li>
+                    <li><a href="#myModal" id="loginBtn">로그인</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="calendar"></div>  
+        <script>
+            function loadCalendar() {
+                // FullCalendar 설정
+                const calendarEl = document.getElementById('calendar');
+                const calendar = new FullCalendar.Calendar(calendarEl, {
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
                     },
-                    {
-                        title: '세미나',
-                        start: '2023-11-25T14:00:00',
-                        end: '2023-11-25T16:00:00',
-                        backgroundColor: '#5bc0de',
-                        borderColor: '#46b8da'
-                    }
-                ]
-            });
-        });
-    </script>
-</body>
+                    defaultView: 'month',
+                    height: 500, // 달력 높이
+                    editable: true,
+                    events: [
+                        // 여기에 이벤트 데이터 추가 가능
+                        {
+                            title: '회의',
+                            start: '2023-11-20T10:00:00',
+                            end: '2023-11-20T12:00:00',
+                            backgroundColor: '#337ab7',
+                            borderColor: '#2e6da4'
+                        },
+                        {
+                            title: '세미나',
+                            start: '2023-11-25T14:00:00',
+                            end: '2023-11-25T16:00:00',
+                            backgroundColor: '#5bc0de',
+                            borderColor: '#46b8da'
+                        }
+                    ]
+                });
+                calendar.render();
+            };
+
+            document.addEventListener('DOMContentLoaded', loadCalendar);
+
+        </script>
+    </body>
 </html>
