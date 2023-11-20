@@ -19,14 +19,8 @@
                 </ul>
             </nav>
         </header>
-        <!-- FullCalendar 라이브러리 추가 -->
-        <!-- main 태그 안에 추가 -->
-        <!-- FullCalendar 스크립트 추가 -->
         <main>
-            <!-- 헤더 내 로그인 링크 수정 -->
-
-
-            <!-- 모달창 -->
+            <!--모달-->
             <div id="myModal"class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
@@ -44,21 +38,13 @@
         </main>
 
         <footer>
-            <!-- 페이지 하단 내용 (옵션) -->
         </footer>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js" integrity="sha256-alsi6DkexWIdeVDEct5s7cnqsWgOqsh2ihuIZbU6H3I=" crossorigin="anonymous"></script>
         <script>
-            // 모달 요소 가져오기
             var modal = document.getElementById('myModal');
-
-            // 로그인 버튼 가져오기
-            var loginBtn = document.getElementById('loginBtn');
-
-            // 모달 닫기 버튼 가져오기
+            var loginBtn = document.getElementById('loginBtn');            
             var closeBtn = document.getElementsByClassName('close')[0];
-
-            // 로그인 버튼 클릭 시 모달 표시
             loginBtn.onclick = function () {
                 modal.style.display = 'block';
             };
@@ -68,22 +54,22 @@
                 modal.style.display = 'none';
             };
 
-            // 모달 외부 클릭 시 모달 숨김
+            
             window.onclick = function (event) {
                 if (event.target == modal) {
                     modal.style.display = 'none';
                 }
             };
 
-            // 로그인 폼 제출 시 동작 (여기서는 단순히 콘솔에 로그 출력)
+            //밑에서 id, password 확인 예정 
             var loginForm = document.getElementById('loginForm');
             loginForm.addEventListener('submit', function (event) {
                 event.preventDefault();
                 var username = document.getElementById('username').value;
                 var password = document.getElementById('password').value;
                 console.log('Username:', username, 'Password:', password);
-                // 여기에 로그인 처리 로직 추가
-                modal.style.display = 'none'; // 로그인 후 모달 숨김
+               
+                modal.style.display = 'none';  
             });
         </script>
     </body>

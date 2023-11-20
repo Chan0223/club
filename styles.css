@@ -87,14 +87,14 @@ footer {
     margin: 0 auto;
 }
 
-/* .fc-event-container 클래스를 사용하여 이벤트 컨테이너의 스타일을 변경합니다. */
+
 .fc-event-container {
-    background-color: #337ab7; /* 이벤트 배경색 */
-    border-color: #2e6da4; /* 이벤트 테두리 색 */
+    background-color: #337ab7; 
+    border-color: #2e6da4; 
 }
 
-/* .fc-event 클래스를 사용하여 이벤트의 스타일을 변경합니다. */
+
 .fc-event {
-    background-color: #337ab7; /* 이벤트 배경색 */
-    border-color: #2e6da4; /* 이벤트 테두리 색 */
+    background-color: #337ab7;
+    border-color: #2e6da4; 
 }
