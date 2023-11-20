@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
+<head></head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
@@ -12,16 +12,24 @@
         crossorigin="anonymous"
     />
     <!-- FullCalendar 최신 버전 CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.0/dist/fullcalendar.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.0/dist/fullcalendar.min.css" />
     <!-- Moment.js 최신 버전 CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
 
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-        integrity="sha512-BVtOL3q8OVd3U5ofz4bP8LW2NcS8jq4NJEp+4VQ4u7We+oqE0RD4gHXH9ERv/EtA/7+pBZw6oWVYHs+1M6onEg=="
-        crossorigin="anonymous"
-    ></script>
+</head>
+<body>
+    <header>
+        <div class="logo">로고</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">동아리통합시스템</a></li>
+                <li><a href="members.html">부원관리</a></li>
+                <li><a href="money.html">회비관리</a></li>
+                <li><a href="calendar.html">일정관리</a></li>
+                <li><a href="#myModal" id="loginBtn">로그인</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="calendar"></div>  
     <script
         src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha512-GLb8UZRLaJRkXZL7aH/djDSWfOV/pD5doPFL1XkME9dr9GL5Mq5i8ELvG6q4Mz2efA+C2d9QxkcAuFZw8n8HlJw=="
@@ -32,7 +40,13 @@
         integrity="sha512-FAq2p16IVHu2pOYP0Uq7Viz9bxDgSoGleEHAaqqssCt2flvQtd4KBeWjK4+9RIJ4oz5r6nEuXIt4W0Qz1vgn4Q=="
         crossorigin="anonymous"
     ></script>
-
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-BVtOL3q8OVd3U5ofz4bP8LW2NcS8jq4NJEp+4VQ4u7We+oqE0RD4gHXH9ERv/EtA/7+pBZw6oWVYHs+1M6onEg=="
+        crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.0/dist/fullcalendar.min.js"></script>
     <script>
         $(document).ready(function() {
             // FullCalendar 설정
@@ -65,20 +79,5 @@
             });
         });
     </script>
-</head>
-<body>
-    <header>
-        <div class="logo">로고</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">동아리통합시스템</a></li>
-                <li><a href="members.html">부원관리</a></li>
-                <li><a href="money.html">회비관리</a></li>
-                <li><a href="calendar.html">일정관리</a></li>
-                <li><a href="#myModal" id="loginBtn">로그인</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div id="calendar"></div>
 </body>
 </html>
