@@ -6,6 +6,28 @@
         <link rel="stylesheet" href="styles.css" />
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js" integrity="sha256-alsi6DkexWIdeVDEct5s7cnqsWgOqsh2ihuIZbU6H3I=" crossorigin="anonymous"></script>
         <title>동아리통합시스템</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+    
+            th, td {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+    
+            th {
+                background-color: #f2f2f2;
+            }
+            #editButton {
+                float: right;
+                margin-top: -50px;
+                margin-right: 20px; 
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -21,9 +43,22 @@
             </nav>
         </header>
         <div id="calendar"></div>  
+        <button id="editButton">수정하기</button>
+        <table id="memberTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Start</th>
+                    <th>End</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 데이터가 동적으로 추가될 부분 -->
+            </tbody>
+        </table>
         <script>
             function loadCalendar() {
-              
+                // FullCalendar 초기화
                 const calendarEl = document.getElementById('calendar');
                 const calendar = new FullCalendar.Calendar(calendarEl, {
                     header: {
@@ -34,30 +69,39 @@
                     defaultView: 'month',
                     height: 500,
                     editable: true,
-                    events: [
-                        //이 부분에서 데이터 베이스 받는것
-                        //수정하기 버튼은 추후 추가 예정 
-                        {
-                            title: '회의',
-                            start: '2023-11-20T10:00:00',
-                            end: '2023-11-20T12:00:00',
-                            backgroundColor: '#337ab7',
-                            borderColor: '#2e6da4'
-                        },
-                        {
-                            title: '세미나',
-                            start: '2023-11-25T14:00:00',
-                            end: '2023-11-25T16:00:00',
-                            backgroundColor: '#5bc0de',
-                            borderColor: '#46b8da'
-                        }
-                    ]
+                    events: []  // 초기에는 빈 배열로 시작
                 });
+
+                // FullCalendar의 events에 추가하기
+                var data = [
+                    { title: '부원 이벤트 1', start: '2023-11-30T08:00:00', end: '2023-11-30T10:00:00' },
+                    { title: '부원 이벤트 2', start: '2023-12-05T14:00:00', end: '2023-12-05T16:00:00' },
+                    // 추가적인 이벤트들을 data에 추가
+                ];
+
+                data.forEach(function (event) {
+                    calendar.addEvent(event);
+                });
+
+                // FullCalendar 렌더링
                 calendar.render();
-            };
+
+                // 테이블에 데이터 동적으로 추가
+                var tableBody = document.querySelector('#memberTable tbody');
+
+                data.forEach(function (event) {
+                    var row = tableBody.insertRow();
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+
+                    cell1.textContent = event.title;
+                    cell2.textContent = event.start;
+                    cell3.textContent = event.end;
+                });
+            }
 
             document.addEventListener('DOMContentLoaded', loadCalendar);
-
         </script>
     </body>
 </html>
